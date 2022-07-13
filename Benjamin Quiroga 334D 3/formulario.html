@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="formulario.css">
+    <script type="text/javascript" src="script_form.js"></script>
+    <title>Formulario</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="logo">
+            <div class="text-center" id="logo">
+                <img src="imagenes/Logo.png" class="rounded" alt="...">
+            </div>
+        </div>
+
+        <div class="menu">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Menu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <a class="dropdown-item" href="cine.html">Portada</a>
+                  <a class="dropdown-item" href="https://www.bing.com/maps?q=ubicacion+cine&cvid=fbf75541a9604e50a418c97a7d9a3652&aqs=edge..69i57j0l8.3987j0j1&pglt=43&FORM=ANNAB1&PC=U531">Ubicacion</a>
+                  <a class="dropdown-item" href="https://www.geniolandia.com/13100726/descripciones-de-los-trabajos-en-un-cine">Personal</a>
+                </div>
+            </div>
+        </div>
+        
+
+        <form class="needs-validation shadow-lg p-3 mb-5 mt-4 bg-body rounded" action="#" method="post" name="formulario" id="formulario" novalidate>
+            <div class="form-row" >
+                <div class="col-md-4 mb-3">
+                    <label for="nombres">Nombres Completos</label>
+                    <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ej: Alexander Andres" required>
+                    <div class="valid-feedback">Campo ok</div>
+                    <div class="invalid-feedback">Complete los datos</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="Apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ej: Lopez Rodriguez" required>
+                    <div class="valid-feedback">Campo ok</div>
+                    <div class="invalid-feedback">Complete los datos</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="Pais">Pais</label>
+                    <input type="text" class="form-control" name="pais" id="pais" placeholder="Ej: Chile" required>
+                    <div class="valid-feedback">Campo ok</div>
+                    <div class="invalid-feedback">Complete los datos</div>
+                </div>
+            
+                <div class="col-md-4 mb-3">
+                    <label for="rut">Rut</label>
+                    <input type="text" class="form-control" name="rut" onkeypress="return validar_caracteresr(event);" id="rut" placeholder="Ej: 20182452-0" required>
+                    <div class="valid-feedback">Campo ok</div>
+                    <div class="invalid-feedback">Complete los datos</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="telefono">Telefono (Sin +56)</label>
+                    <input type="text" class="form-control" name="telefono" id="telefono" onkeypress="return validar_caracteres(event);" placeholder="9 9358 8265" required>
+                    <div class="valid-feedback">Campo ok</div>
+                    <div class="invalid-feedback">Complete los datos</div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="">fecha de Nacimiento</label>
+                    <input class="form-control invalid" type="date" name="fecha" id="fecha" norequired>
+                    <div class="valid-feedback">Campo no obligatorio</div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="">Membresia Cine Classic</label>
+                    <select name="membresia" id="membresia" class="form-select" required>
+                        <option value=""></option>
+                        <option value="Pintura Latex">silver $10usd</option>
+                        <option value="Brocha">gold $12usd</option>
+                        <option value="Rodillo">black $15usd</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="">Genero de peliculas favorito</label>
+                    <textarea class="form-control invalid" name="txa_comentario" id="txa_comentario" cols="30" rows="5" placeholder="Ej: terror, accion, ciencia-fi, etc..." norequired></textarea>
+                    <div class="valid-feedback">Campo no obligatorio</div>
+                </div> 
+                
+            </div>  
+            <input class="btn btn-outline-dark" type="submit" value="Registrar" onclick="javascript:void(validar())">
+            <input type="reset" class="btn btn-danger" value="Limpiar controles">
+        </form>
+    </div>
+
+
+    <script>
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+    </script>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
